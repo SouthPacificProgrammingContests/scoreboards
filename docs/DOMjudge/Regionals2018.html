@@ -9,42 +9,6 @@
 <link rel="stylesheet" href="./Scoreboard_files/octicons.css">
 <script type="text/javascript" src="./Scoreboard_files/jquery.min.js.download"></script>
 <script type="text/javascript" src="./Scoreboard_files/domjudge.js.download"></script>
-<script type="text/javascript">
-var refreshHandler = null;
-var refreshEnabled = false;
-function enableRefresh() {
-	if (refreshEnabled) {
-		return;
-	}
-	refreshHandler = setTimeout(function () {
-		window.location = './';
-	}, 30000);
-	refreshEnabled = true;
-	window.Cookies && Cookies.set('domjudge_refresh', 1);
-}
-
-function disableRefresh() {
-	if (!refreshEnabled) {
-		return;
-	}
-	clearTimeout(refreshHandler);
-	refreshEnabled = false;
-	window.Cookies && Cookies.set('domjudge_refresh', 0);
-}
-
-function toggleRefresh() {
-	if ( refreshEnabled ) {
-		disableRefresh();
-	} else {
-		enableRefresh();
-	}
-
-	var text = refreshEnabled ? 'Disable refresh' : 'Enable refresh';
-	$('#refresh-toggle').val(text);
-}
-
-enableRefresh();
-</script>
 </head>
 <body data-gr-c-s-loaded="true">
 
